@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:inspirathon/pages/login_page.dart';
 import 'package:inspirathon/pages/reset_page.dart';
+import 'package:inspirathon/uri_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
       String phone) async {
     try {
       Response response = await post(
-        Uri.parse('http://10.10.25.23:8000/api/signup/'),
+        Uri.parse('$config/api/signup/'),
         body: {
           'f_name': fname,
           'l_name': lname,
@@ -87,7 +88,10 @@ class _SignUpPageState extends State<SignUpPage> {
           padding: const EdgeInsets.only(left: 8),
           // child: appLogo,
         ),
-        title: Text('Sign Up page'),
+        title: Text(
+          'Sign Up page',
+          style: TextStyle(color: Colors.black),
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.orange[600],
       ),
@@ -101,7 +105,8 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 //welcome resller
                 Text(
-                  'Hello Executive!',
+                  'Hello New User!',
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 20),
 //first name testfield

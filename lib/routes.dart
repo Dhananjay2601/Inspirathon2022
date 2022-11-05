@@ -8,8 +8,9 @@ import 'dart:convert';
 // import 'package:reseller_apk/pages/hotel%20agent/property/agent_property.dart';
 // import 'package:reseller_apk/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:inspirathon/pages/cart_page.dart';
+import 'package:inspirathon/pages/checkOut_page.dart';
 import 'package:inspirathon/pages/home_page.dart';
+import 'package:inspirathon/pages/locationDetail_page.dart';
 import 'package:inspirathon/pages/reset_page.dart';
 import 'package:inspirathon/pages/login_page.dart';
 import 'package:inspirathon/pages/signUp_page.dart';
@@ -17,14 +18,15 @@ import 'package:inspirathon/pages/signUp_page.dart';
 /// Rutas
 Map<String, WidgetBuilder> routes = {
   "/": (context) => const LoginPage(),
-  // HomePage.id: (context) => const HomePage(),
-  // AddAgent.id: (context) => const AddAgent(),
-  // AgentProperty.id: (context) => const AgentProperty(),
-  // AddProperty.id: (context) => const AddProperty(),
-  // HotelAgents.id: (context) => const HotelAgents(),
-  // ExecutiveProperty.id: (context) => const ExecutiveProperty(),
   ResetPage.id: (context) => const ResetPage(),
   SignUpPage.id: (context) => const SignUpPage(),
-  HomePage.id: (context) => HomePage(),
-  CartPage.id: (context) => const CartPage(),
+  HomePage.id: (context) => const HomePage(),
+  CheckOutPage.page_id: (context) => CheckOutPage(
+        name: '',
+        id: '',
+        id2: [],
+      ),
+  LocationDetail.id: (context) => const LocationDetail(
+        location_id: '',
+      ),
 };

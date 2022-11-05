@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, avoid_print, unnecessary_new
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, avoid_print, unnecessary_new, avoid_unnecessary_containers
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 import 'package:inspirathon/pages/login_page.dart';
+import 'package:inspirathon/uri_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ResetPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _ResetPageState extends State<ResetPage> {
   void resetPass(String password, String otp) async {
     try {
       Response response = await post(
-        Uri.parse('http://10.10.25.23:8000/api/reset/'),
+        Uri.parse('$config/api/reset/'),
         body: {
           'otp': otp,
           'pw': password,
@@ -113,7 +114,10 @@ class _ResetPageState extends State<ResetPage> {
           padding: const EdgeInsets.only(left: 8),
           // child: appLogo,
         ),
-        title: Text('Auth page'),
+        title: Text(
+          'Auth page',
+          style: TextStyle(color: Colors.black),
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.orange[600],
       ),
@@ -125,7 +129,6 @@ class _ResetPageState extends State<ResetPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //welcome resller
                 Text(
                   'Get OTP for resetting password!',
                 ),
@@ -134,7 +137,6 @@ class _ResetPageState extends State<ResetPage> {
                 SizedBox(height: 50),
                 Text('Enter OTP here'),
                 SizedBox(height: 15),
-
 //OTP textfield
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 65.0),
@@ -345,7 +347,6 @@ class _ResetPageState extends State<ResetPage> {
                     ),
                   ),
                 ),
-
                 // Container(
                 //   height: 60,
                 //   width: 60,
@@ -473,7 +474,6 @@ class _ReqOtpState extends State<ReqOtp> {
                 //         child: CircularProgressIndicator(),
                 //       )
                 //     :
-
                 reqOtp(
                   emailcontroller.text.toString(),
                 );

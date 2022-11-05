@@ -5,6 +5,7 @@ import 'package:http/http.dart';
 import 'package:inspirathon/pages/home_page.dart';
 import 'package:inspirathon/pages/reset_page.dart';
 import 'package:inspirathon/pages/signUp_page.dart';
+import 'package:inspirathon/uri_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   void login(String email, password) async {
     try {
       Response response = await post(
-        Uri.parse('http://10.10.25.23:8000/api/login/'),
+        Uri.parse('$config/api/login/'),
         body: {
           'email': email,
           'password': password,
@@ -101,7 +102,10 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.only(left: 8),
           // child: appLogo,
         ),
-        title: Text('Login page'),
+        title: Text(
+          'Login page',
+          style: TextStyle(color: Colors.black),
+        ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.orange[600],
       ),
@@ -113,13 +117,15 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //welcome resller
                 Text(
-                  'Hello Executive!',
+                  'Hello User!',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30),
                 ),
                 SizedBox(height: 20),
-
-                //email testfield
+//email testfield
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
@@ -276,7 +282,7 @@ class _LoginPageState extends State<LoginPage> {
                     )
                   ],
                 ),
-                //not a resller? Join Us Now!
+//not a member? Sign Up Now!
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
